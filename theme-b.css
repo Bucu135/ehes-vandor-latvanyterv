@@ -210,3 +210,7 @@ body.v-b[data-tone="este"]::before { opacity: 1; }
   transition: background-color .9s var(--ease);
 }
 @media (max-width: 640px) { .v-b .hero { padding-bottom: 76px; } .v-b .day { margin-top: -30px; border-radius: 28px 28px 0 0; } }
+
+/* mobil alsó sáv: kapszula-gombok (Bence kérése) */
+.v-b .dock { border-radius: 999px; padding: 7px; }
+.v-b .dock .btn { border-radius: 999px; }
