@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="hu" class="no-js v-b">
+<head>
+<meta charset="utf-8">
+<script>try{if(sessionStorage.getItem("ev-pt")==="1"&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("pt-in")}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mai menü & rendelés · Éhes Vándor Székelykeresztúr</title>
+<meta name="description" content="A Vándor választható napi menüje: leves, főétel, köret. Rendelés helyben, elvitelre vagy házhozszállítással.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#241812">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mai menü & rendelés · Éhes Vándor Székelykeresztúr">
+<meta property="og:description" content="A Vándor választható napi menüje: leves, főétel, köret. Rendelés helyben, elvitelre vagy házhozszállítással.">
+<meta property="og:image" content="https://bucu135.github.io/ehes-vandor-latvanyterv/img/og.jpg">
+<link rel="icon" href="img/logo-240.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Hanken+Grotesk:ital,wght@0,400..800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="theme-b.css">
+</head>
+<body data-tone="este" class="v-b">
+<a class="skip" href="#main" data-i18n="skip">Ugrás a tartalomra</a>
+
+<header class="hdr">
+  <div class="wrap">
+    <div class="hdr-pill">
+      <a class="brand" href="index.html" aria-label="Éhes Vándor — főoldal">
+        <img src="img/logo-240.webp" alt="">
+        <b>Éhes Vándor</b>
+      </a>
+      <nav class="nav" aria-label="Fő navigáció">
+        <a href="napi-menu.html" data-page="napi-menu" aria-current="page" data-i18n="nav.daily">Napi menü</a>
+        <a href="etlap.html" data-page="etlap" data-i18n="nav.carte">Étlap</a>
+        <a href="programok.html" data-page="programok" data-i18n="nav.events">Programok</a>
+        <a href="kapcsolat.html" data-page="kapcsolat" data-i18n="nav.contact">Kapcsolat</a>
+      </nav>
+    </div>
+    <div class="hdr-pill hdr-right">
+      <div class="lang" role="group" aria-label="Nyelv">
+        <button type="button" data-lang="hu" aria-pressed="true">HU</button>
+        <button type="button" data-lang="ro" aria-pressed="false">RO</button>
+      </div>
+      <a class="btn bordo" href="napi-menu.html#rendeles" data-i18n="cta.order">Rendelek</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <nav aria-label="Mobil navigáció">
+    <a href="index.html" data-page="index" data-i18n="nav.home">Főoldal</a>
+    <a href="napi-menu.html" data-page="napi-menu" aria-current="page" data-i18n="nav.daily">Napi menü</a>
+    <a href="etlap.html" data-page="etlap" data-i18n="nav.carte">Étlap</a>
+    <a href="programok.html" data-page="programok" data-i18n="nav.events">Programok</a>
+    <a href="kapcsolat.html" data-page="kapcsolat" data-i18n="nav.contact">Kapcsolat</a>
+  </nav>
+  <div class="lang" role="group" aria-label="Nyelv">
+    <button type="button" data-lang="hu" aria-pressed="true">HU</button>
+    <button type="button" data-lang="ro" aria-pressed="false">RO</button>
+  </div>
+  <div class="meta">
+    <span class="status" data-live>Most nyitva</span>
+    <a href="tel:+40747369320">0747 369 320</a>
+    <span data-i18n="addr">Szabadság tér 8., Székelykeresztúr</span>
+  </div>
+</div>
+
+<main id="main">
+<section class="page-hero" data-tone-sec="este">
+  <div class="wrap">
+    <p class="crumb rv"><a href="index.html" data-i18n="nav.home">Főoldal</a> / <span data-i18n="nav.daily">Napi menü</span></p>
+    <span class="eyebrow rv" data-i18n="dm.eyebrow">Választható napi menü · Házhozszállítás</span>
+    <h1 class="h-line"><span><span data-i18n="dm.h1">Mi legyen ma ebédre?</span></span></h1>
+    <p class="lead rv" data-i18n="dm.lead">Válasszon egy levest, egy főételt és egy köretet — a konyha összerakja, Ön pedig eldönti, hogy helyben eszi, elviszi, vagy házhoz kéri.</p>
+    <div class="row rv"><span class="status" data-live>Most nyitva</span><span class="muted" id="pickDate">—</span></div>
+  </div>
+</section>
+
+<section class="order" id="rendeles" data-tone-sec="este" aria-label="Rendelés">
+  <div class="wrap order-grid">
+    <form class="pick rv" id="pick" onsubmit="return false">
+      <p class="single-note" data-i18n="dm.single">Ma csak egyféle menü van — de abból bőven.</p>
+      <fieldset>
+        <legend><span data-i18n="dm.soups">1 · Leves</span><small data-i18n="dm.pick1">válasszon egyet</small></legend>
+        <div class="opts" data-opts="soups"></div>
+      </fieldset>
+      <fieldset>
+        <legend><span data-i18n="dm.mains">2 · Főétel</span><small data-i18n="dm.pick1b">válasszon egyet</small></legend>
+        <div class="opts" data-opts="mains"></div>
+      </fieldset>
+      <fieldset>
+        <legend><span data-i18n="dm.sides">3 · Köret</span><small data-i18n="dm.pick1c">válasszon egyet</small></legend>
+        <div class="opts" data-opts="sides"></div>
+      </fieldset>
+      <p class="muted" style="font-size:14px" id="pickNote"></p>
+    </form>
+
+    <div class="panel rv" style="--d:.1s">
+      <form id="orderForm" novalidate>
+        <h3 data-i18n="of.t">Rendelés</h3>
+        <p class="sub" data-i18n="of.sub">Pár adat, és a konyha már tudja, mit készítsen.</p>
+        <div class="f">
+          <span class="lbl" data-i18n="of.mode">Hogyan kéri?</span>
+          <div class="seg" role="radiogroup">
+            <label><input type="radio" name="mode" value="here"><span data-i18n="of.here">Helyben</span></label>
+            <label><input type="radio" name="mode" value="take"><span data-i18n="of.take">Elvitelre</span></label>
+            <label><input type="radio" name="mode" value="deliv" checked><span data-i18n="of.deliv">Házhoz</span></label>
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="f">
+            <span class="lbl" data-i18n="of.qty">Adag</span>
+            <div class="qty"><button type="button" id="qtyMinus" aria-label="Kevesebb">−</button><output id="qtyOut">1</output><button type="button" id="qtyPlus" aria-label="Több">+</button></div>
+          </div>
+          <div class="f">
+            <label for="ofTime" data-i18n="of.time">Mikorra?</label>
+            <select id="ofTime" name="time"></select>
+          </div>
+        </div>
+        <div class="f addr">
+          <label for="ofAddr" data-i18n="of.addr">Szállítási cím *</label>
+          <input id="ofAddr" name="addr" autocomplete="street-address" data-i18n-ph="addr" placeholder="utca, házszám, Székelykeresztúr">
+        </div>
+        <div class="f-row">
+          <div class="f"><label for="ofName" data-i18n="of.name">Név *</label><input id="ofName" name="name" autocomplete="name"></div>
+          <div class="f"><label for="ofTel" data-i18n="of.tel">Telefon *</label><input id="ofTel" name="tel" type="tel" autocomplete="tel" placeholder="07xx xxx xxx"></div>
+        </div>
+        <div class="f"><label for="ofNote" data-i18n="of.note">Megjegyzés</label><input id="ofNote" name="note" data-i18n-ph="note" placeholder="pl. hagyma nélkül, kapucsengő: 3"></div>
+        <div class="summary" aria-live="polite">
+          <div class="line"><span data-i18n="of.s1">Menü</span><b id="sumMenu">—</b></div>
+          <div class="line"><span data-i18n="of.s2">Adag</span><b id="sumQty">1 adag</b></div>
+          <div class="line"><span data-i18n="of.s3">Mód</span><b id="sumMode">—</b></div>
+          <div class="line"><span data-i18n="of.s4">Időpont</span><b id="sumTime">—</b></div>
+        </div>
+        <p class="err" role="alert"></p>
+        <button class="btn bordo" type="submit" data-i18n="of.send">Rendelés elküldése</button>
+        <p class="or-call"><span data-i18n="of.call">Inkább telefonálna?</span> <a href="tel:+40747369320">0747 369 320</a></p>
+      </form>
+      <div class="done" aria-live="polite">
+        <div class="tick">✓</div>
+        <h3 data-i18n="of.ok">Így nézne ki a visszaigazolás</h3>
+        <div class="sms" id="orderSms"></div>
+        <p class="honest" data-i18n="of.honest">Ez egy látványterv: a rendelés most nem ment el sehova. Élesben a konyha telefonjára érkezne, a vendég pedig ezt az SMS-t kapná.</p>
+        <button class="btn ghost" type="button" id="orderAgain" data-i18n="of.again">Vissza a rendeléshez</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KONYHA-DEMÓ ============ -->
+<section class="kitchen" data-tone-sec="del" aria-labelledby="kTitle">
+  <div class="wrap kitchen-grid">
+    <div class="kitchen-copy">
+      <span class="eyebrow rv" data-i18n="k.eyebrow">Próbálja ki — így frissíti a konyha</span>
+      <h2 id="kTitle" class="rv" data-i18n="k.t">Két perc reggel, és kész a honlap meg a plakát is.</h2>
+      <p class="lead rv" data-i18n="k.p">Írja át az alábbi mezőket: a fenti menütábla, a főoldal és a Facebook-plakát egyszerre változik. Nincs több külön plakátszerkesztés, nincs elírás a fejlécben.</p>
+      <form class="phone rv" id="kitchen" onsubmit="return false">
+        <div class="f"><label for="kSoups" data-i18n="k.soups">Levesek (soronként egy)</label><textarea id="kSoups" name="soups"></textarea></div>
+        <div class="f"><label for="kMains" data-i18n="k.mains">Főételek</label><textarea id="kMains" name="mains"></textarea></div>
+        <div class="f"><label for="kSides" data-i18n="k.sides">Köretek</label><textarea id="kSides" name="sides"></textarea></div>
+        <label class="switch"><input type="checkbox" name="single"><span data-i18n="k.single">Ma csak egyféle menü van</span></label>
+      </form>
+    </div>
+    <div class="poster-wrap rv" style="--d:.1s">
+      <div class="poster" aria-label="A napi menü Facebook-plakátja">
+        <span class="motif" aria-hidden="true"></span>
+        <img class="p-logo" src="img/logo-240.webp" alt="">
+        <span class="p-kick">Mai menü</span>
+        <span class="p-title">Választható napi menü</span>
+        <span class="p-date">—</span>
+        <div class="p-cols"></div>
+        <div class="p-foot"></div>
+      </div>
+      <p class="poster-cap" data-i18n="k.cap">Ez a plakát magától készül a menüből — letölthető, és mehet is a Facebookra.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <span class="motif" aria-hidden="true"></span>
+    <div class="ftr-grid">
+      <div class="ftr-brand">
+        <img src="img/logo-240.webp" alt="Éhes Vándor Étterem logó">
+        <p data-i18n="ftr.about">Étterem, kávézó és bár Székelykeresztúr főterén. Reggel kávé, délben napi menü, este élőzene — és ami közben elfér.</p>
+      </div>
+      <div>
+        <h4 data-i18n="ftr.find">Itt talál</h4>
+        <ul>
+          <li data-i18n="addr">Szabadság tér 8., Székelykeresztúr</li>
+          <li><a href="tel:+40747369320">0747 369 320</a></li>
+          <li><a href="https://www.facebook.com/ehesvandor" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="ftr.hours">Nyitvatartás</h4>
+        <ul class="num">
+          <li data-i18n="ftr.h1">H–Cs · 7–23</li>
+          <li data-i18n="ftr.h2">P–Szo · 7–24</li>
+          <li data-i18n="ftr.h3">V · 10–22</li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="ftr.pages">Oldalak</h4>
+        <ul>
+          <li><a href="napi-menu.html" data-i18n="nav.daily">Napi menü</a></li>
+          <li><a href="etlap.html" data-i18n="nav.carte">Étlap</a></li>
+          <li><a href="programok.html" data-i18n="nav.events">Programok</a></li>
+          <li><a href="kapcsolat.html" data-i18n="nav.contact">Kapcsolat</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="base">
+      <span>© <span data-year>2026</span> Éhes Vándor SRL</span>
+      <span data-i18n="ftr.demo">Látványterv — a tartalom egy része minta, egyeztetésre vár.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="dock away">
+  <a class="btn mez" href="napi-menu.html#rendeles" data-i18n="dock.menu">Mai menü</a>
+  <a class="btn" href="tel:+40747369320" data-i18n="dock.call">Hívás</a>
+</div>
+
+<script src="data.js"></script>
+<script src="locale.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

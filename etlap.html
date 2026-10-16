@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="hu" class="no-js v-b">
+<head>
+<meta charset="utf-8">
+<script>try{if(sessionStorage.getItem("ev-pt")==="1"&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("pt-in")}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Étlap · Éhes Vándor Székelykeresztúr</title>
+<meta name="description" content="Csorbák, sültek, halak, pizza, desszertek és italok — az Éhes Vándor étlapja.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#241812">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Étlap · Éhes Vándor Székelykeresztúr">
+<meta property="og:description" content="Csorbák, sültek, halak, pizza, desszertek és italok — az Éhes Vándor étlapja.">
+<meta property="og:image" content="https://bucu135.github.io/ehes-vandor-latvanyterv/img/og.jpg">
+<link rel="icon" href="img/logo-240.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Hanken+Grotesk:ital,wght@0,400..800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="theme-b.css">
+</head>
+<body data-tone="del" class="v-b">
+<a class="skip" href="#main" data-i18n="skip">Ugrás a tartalomra</a>
+
+<header class="hdr">
+  <div class="wrap">
+    <div class="hdr-pill">
+      <a class="brand" href="index.html" aria-label="Éhes Vándor — főoldal">
+        <img src="img/logo-240.webp" alt="">
+        <b>Éhes Vándor</b>
+      </a>
+      <nav class="nav" aria-label="Fő navigáció">
+        <a href="napi-menu.html" data-page="napi-menu" data-i18n="nav.daily">Napi menü</a>
+        <a href="etlap.html" data-page="etlap" aria-current="page" data-i18n="nav.carte">Étlap</a>
+        <a href="programok.html" data-page="programok" data-i18n="nav.events">Programok</a>
+        <a href="kapcsolat.html" data-page="kapcsolat" data-i18n="nav.contact">Kapcsolat</a>
+      </nav>
+    </div>
+    <div class="hdr-pill hdr-right">
+      <div class="lang" role="group" aria-label="Nyelv">
+        <button type="button" data-lang="hu" aria-pressed="true">HU</button>
+        <button type="button" data-lang="ro" aria-pressed="false">RO</button>
+      </div>
+      <a class="btn bordo" href="napi-menu.html#rendeles" data-i18n="cta.order">Rendelek</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <nav aria-label="Mobil navigáció">
+    <a href="index.html" data-page="index" data-i18n="nav.home">Főoldal</a>
+    <a href="napi-menu.html" data-page="napi-menu" data-i18n="nav.daily">Napi menü</a>
+    <a href="etlap.html" data-page="etlap" aria-current="page" data-i18n="nav.carte">Étlap</a>
+    <a href="programok.html" data-page="programok" data-i18n="nav.events">Programok</a>
+    <a href="kapcsolat.html" data-page="kapcsolat" data-i18n="nav.contact">Kapcsolat</a>
+  </nav>
+  <div class="lang" role="group" aria-label="Nyelv">
+    <button type="button" data-lang="hu" aria-pressed="true">HU</button>
+    <button type="button" data-lang="ro" aria-pressed="false">RO</button>
+  </div>
+  <div class="meta">
+    <span class="status" data-live>Most nyitva</span>
+    <a href="tel:+40747369320">0747 369 320</a>
+    <span data-i18n="addr">Szabadság tér 8., Székelykeresztúr</span>
+  </div>
+</div>
+
+<main id="main">
+<section class="page-hero" data-tone-sec="del">
+  <div class="wrap">
+    <p class="crumb rv"><a href="index.html" data-i18n="nav.home">Főoldal</a> / <span data-i18n="nav.carte">Étlap</span></p>
+    <span class="eyebrow rv" data-i18n="et.eyebrow">Étlap</span>
+    <h1 class="h-line"><span><span data-i18n="et.h1">Házias ízek, bőséges adagok.</span></span></h1>
+    <p class="lead rv" data-i18n="et.lead">Székely, magyar és román klasszikusok, sültek fatálon, halak, pizza és tészta — a délutáni kávéhoz pedig túrófánk vagy madártej.</p>
+  </div>
+</section>
+
+<section class="carte" data-tone-sec="del">
+  <div class="wrap">
+    <div class="note-box rv"><span aria-hidden="true">✎</span><p data-i18n="et.note"><b>Látványterv:</b> a tételek a Vándor korábbi étlapjáról és napi menüiből valók. Az árakat és az aktuális kínálatot az étteremmel egyeztetjük.</p></div>
+
+    <nav class="menu-nav" aria-label="Étlap-kategóriák">
+      <a href="#levesek" data-i18n="et.n1">Levesek</a>
+      <a href="#husok" data-i18n="et.n2">Húsok &amp; sültek</a>
+      <a href="#koretek" data-i18n="et.n3">Köretek</a>
+      <a href="#halak" data-i18n="et.n4">Halak</a>
+      <a href="#pizza" data-i18n="et.n5">Pizza &amp; tészta</a>
+      <a href="#desszert" data-i18n="et.n6">Desszertek</a>
+      <a href="#italok" data-i18n="et.n7">Italok</a>
+    </nav>
+
+    <section class="carte-sec" id="levesek">
+      <header>
+        <span class="eyebrow rv">01</span>
+        <h2 class="rv" data-i18n="et.n1">Levesek</h2>
+        <p class="muted rv" data-i18n="et.s1">Csorbák és levesek, ahogy itthon főzik.</p>
+        <div class="frame rv-img"><div class="ph" role="img" aria-label="Fotó: a napi levesekről — helyőrző"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg><b data-i18n="ph.soup">Fotó: a napi levesekről</b><small data-i18n="ph.sub">ide a Vándor saját fotója kerül</small></div></div>
+      </header>
+      <ul class="dishes">
+        <li class="rv"><b data-i18n="d.parcs">Parasztcsorba</b><span class="d" data-i18n="d.parcs2">savanykás, zöldséges csorba</span></li>
+        <li class="rv"><b data-i18n="d.bab">Babgulyás</b><span class="d" data-i18n="d.bab2">laktató, paprikás babgulyás</span></li>
+        <li class="rv"><b data-i18n="d.lucs">Lucskos káposzta</b><span class="d" data-i18n="d.lucs2">a hideg napok levese</span></li>
+        <li class="rv"><b data-i18n="d.zold">Zöldségleves</b><span class="d" data-i18n="d.zold2">könnyű, tiszta leves</span></li>
+      </ul>
+    </section>
+
+    <section class="carte-sec" id="husok">
+      <header>
+        <span class="eyebrow rv">02</span>
+        <h2 class="rv" data-i18n="et.n2">Húsok &amp; sültek</h2>
+        <p class="muted rv" data-i18n="et.s2">Rántott, sült, töltött — és a nagy tál, ha többen jönnek.</p>
+        <div class="frame rv-img"><div class="ph" role="img" aria-label="Fotó: egy tál ételről — helyőrző"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg><b data-i18n="ph.dish">Fotó: egy tál ételről</b><small data-i18n="ph.sub">ide a Vándor saját fotója kerül</small></div></div>
+      </header>
+      <ul class="dishes">
+        <li class="rv"><b><span data-i18n="d.tal">Éhes Vándor Tál</span><span class="tag" data-i18n="d.tag.house">a ház tála</span></b><span class="p">185 lej</span><span class="d" data-i18n="d.tal2">rántott hús, grillkolbász, sült oldalas, hasábburgonya, steakburgonya, zöldséges rizs, csemegekukorica-mix — fatálon, házhoz is</span></li>
+        <li class="rv"><b data-i18n="d.fata">Fatányéros</b><span class="d" data-i18n="d.fata2">vegyes sültek fatányéron</span></li>
+        <li class="rv"><b data-i18n="d.csul">Csülök</b><span class="d" data-i18n="d.csul2">a régi étlapról</span></li>
+        <li class="rv"><b data-i18n="d.csm">Csirkemell nyolcféleképpen</b><span class="d" data-i18n="d.csm2">rántva, sütve, töltve — a pontos választékot az étterem adja meg</span></li>
+        <li class="rv"><b><span data-i18n="d.karaj">Baconnel és sajttal töltött karaj</span><span class="tag" data-i18n="d.tag.daily">napi menüben</span></b></li>
+        <li class="rv"><b><span data-i18n="d.magy">Magyaros szelet</span><span class="tag" data-i18n="d.tag.daily">napi menüben</span></b></li>
+        <li class="rv"><b><span data-i18n="d.szarny">Sült csirkeszárny</span><span class="tag" data-i18n="d.tag.daily">napi menüben</span></b></li>
+        <li class="rv"><b><span data-i18n="d.fas">Fasírt</span><span class="tag" data-i18n="d.tag.daily">napi menüben</span></b></li>
+      </ul>
+    </section>
+
+    <section class="carte-sec" id="koretek">
+      <header>
+        <span class="eyebrow rv">03</span>
+        <h2 class="rv" data-i18n="et.n3">Köretek</h2>
+        <p class="muted rv" data-i18n="et.s3">Bármelyik főételhez, szabadon.</p>
+      </header>
+      <ul class="dishes">
+        <li class="rv"><b data-i18n="d.has">Hasábburgonya</b></li>
+        <li class="rv"><b data-i18n="d.steak">Steakburgonya</b></li>
+        <li class="rv"><b data-i18n="d.pure">Krumplipüré</b></li>
+        <li class="rv"><b data-i18n="d.tarh">Vajas tarhonya</b></li>
+        <li class="rv"><b data-i18n="d.edes">Édesburgonya</b></li>
+        <li class="rv"><b data-i18n="d.rizs">Zöldséges rizs</b></li>
+      </ul>
+    </section>
+
+    <section class="carte-sec" id="halak">
+      <header>
+        <span class="eyebrow rv">04</span>
+        <h2 class="rv" data-i18n="et.n4">Halak</h2>
+        <p class="muted rv" data-i18n="et.s4">Édesvízi és tengeri hal.</p>
+      </header>
+      <ul class="dishes">
+        <li class="rv"><b data-i18n="d.piszt">Pisztráng</b></li>
+        <li class="rv"><b data-i18n="d.ponty">Ponty</b></li>
+        <li class="rv"><b data-i18n="d.toke">Tőkehal</b></li>
+      </ul>
+    </section>
+
+    <section class="carte-sec" id="pizza">
+      <header>
+        <span class="eyebrow rv">05</span>
+        <h2 class="rv" data-i18n="et.n5">Pizza &amp; tészta</h2>
+        <p class="muted rv" data-i18n="et.s5">Helyben, elvitelre vagy házhoz.</p>
+      </header>
+      <ul class="dishes">
+        <li class="rv"><b data-i18n="d.pizza">Pizzák</b><span class="d" data-i18n="d.pizza2">a választékot az étterem adja meg</span></li>
+        <li class="rv"><b data-i18n="d.teszta">Tészták</b><span class="d" data-i18n="d.teszta2">a választékot az étterem adja meg</span></li>
+      </ul>
+    </section>
+
+    <section class="carte-sec" id="desszert">
+      <header>
+        <span class="eyebrow rv">06</span>
+        <h2 class="rv" data-i18n="et.n6">Desszertek</h2>
+        <p class="muted rv" data-i18n="et.s6">A kávé mellé, vagy a vacsora végére.</p>
+      </header>
+      <ul class="dishes">
+        <li class="rv"><b data-i18n="d.turo">Túrófánk</b></li>
+        <li class="rv"><b data-i18n="d.madar">Madártej</b></li>
+        <li class="rv"><b data-i18n="d.souf">Csokisoufflé</b></li>
+        <li class="rv"><b data-i18n="d.pala">Palacsinta</b></li>
+      </ul>
+    </section>
+
+    <section class="carte-sec" id="italok">
+      <header>
+        <span class="eyebrow rv">07</span>
+        <h2 class="rv" data-i18n="et.n7">Italok</h2>
+        <p class="muted rv" data-i18n="et.s7">Reggel kávé, este koktél.</p>
+        <div class="frame rv-img"><img src="img/kave-800.webp" alt="Cappuccino tökös bögrében, kroasszonnal" loading="lazy"></div>
+      </header>
+      <ul class="dishes">
+        <li class="rv"><b data-i18n="d.kave">Kávék</b><span class="d" data-i18n="d.kave2">reggel héttől</span></li>
+        <li class="rv"><b data-i18n="d.kokt">Koktélok</b><span class="d" data-i18n="d.kokt2">esténként a bárban és a teraszon</span></li>
+        <li class="rv"><b data-i18n="d.bor">Borok</b><span class="d" data-i18n="d.bor2">temesrékasi borok</span></li>
+        <li class="rv"><b data-i18n="d.pal">Pálinka</b></li>
+      </ul>
+    </section>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <span class="motif" aria-hidden="true"></span>
+    <div class="ftr-grid">
+      <div class="ftr-brand">
+        <img src="img/logo-240.webp" alt="Éhes Vándor Étterem logó">
+        <p data-i18n="ftr.about">Étterem, kávézó és bár Székelykeresztúr főterén. Reggel kávé, délben napi menü, este élőzene — és ami közben elfér.</p>
+      </div>
+      <div>
+        <h4 data-i18n="ftr.find">Itt talál</h4>
+        <ul>
+          <li data-i18n="addr">Szabadság tér 8., Székelykeresztúr</li>
+          <li><a href="tel:+40747369320">0747 369 320</a></li>
+          <li><a href="https://www.facebook.com/ehesvandor" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="ftr.hours">Nyitvatartás</h4>
+        <ul class="num">
+          <li data-i18n="ftr.h1">H–Cs · 7–23</li>
+          <li data-i18n="ftr.h2">P–Szo · 7–24</li>
+          <li data-i18n="ftr.h3">V · 10–22</li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="ftr.pages">Oldalak</h4>
+        <ul>
+          <li><a href="napi-menu.html" data-i18n="nav.daily">Napi menü</a></li>
+          <li><a href="etlap.html" data-i18n="nav.carte">Étlap</a></li>
+          <li><a href="programok.html" data-i18n="nav.events">Programok</a></li>
+          <li><a href="kapcsolat.html" data-i18n="nav.contact">Kapcsolat</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="base">
+      <span>© <span data-year>2026</span> Éhes Vándor SRL</span>
+      <span data-i18n="ftr.demo">Látványterv — a tartalom egy része minta, egyeztetésre vár.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="dock away">
+  <a class="btn mez" href="napi-menu.html#rendeles" data-i18n="dock.menu">Mai menü</a>
+  <a class="btn" href="tel:+40747369320" data-i18n="dock.call">Hívás</a>
+</div>
+
+<script src="data.js"></script>
+<script src="locale.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

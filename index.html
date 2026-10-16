@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="hu" class="no-js v-b">
+<head>
+<meta charset="utf-8">
+<script>try{if(sessionStorage.getItem("ev-pt")==="1"&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("pt-in")}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Éhes Vándor Étterem · Székelykeresztúr</title>
+<meta name="description" content="Étterem, kávézó és bár Székelykeresztúr főterén. Napi menü házhozszállítással, péntek esti élőzene, terasz.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#241812">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Éhes Vándor Étterem · Székelykeresztúr">
+<meta property="og:description" content="Étterem, kávézó és bár Székelykeresztúr főterén. Napi menü házhozszállítással, péntek esti élőzene, terasz.">
+<meta property="og:image" content="https://bucu135.github.io/ehes-vandor-latvanyterv/img/og.jpg">
+<link rel="icon" href="img/logo-240.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Hanken+Grotesk:ital,wght@0,400..800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="theme-b.css">
+</head>
+<body data-tone="reggel" class="v-b">
+<a class="skip" href="#main" data-i18n="skip">Ugrás a tartalomra</a>
+
+<header class="hdr">
+  <div class="wrap">
+    <div class="hdr-pill">
+      <a class="brand" href="index.html" aria-label="Éhes Vándor — főoldal">
+        <img src="img/logo-240.webp" alt="">
+        <b>Éhes Vándor</b>
+      </a>
+      <nav class="nav" aria-label="Fő navigáció">
+        <a href="napi-menu.html" data-page="napi-menu" data-i18n="nav.daily">Napi menü</a>
+        <a href="etlap.html" data-page="etlap" data-i18n="nav.carte">Étlap</a>
+        <a href="programok.html" data-page="programok" data-i18n="nav.events">Programok</a>
+        <a href="kapcsolat.html" data-page="kapcsolat" data-i18n="nav.contact">Kapcsolat</a>
+      </nav>
+    </div>
+    <div class="hdr-pill hdr-right">
+      <div class="lang" role="group" aria-label="Nyelv">
+        <button type="button" data-lang="hu" aria-pressed="true">HU</button>
+        <button type="button" data-lang="ro" aria-pressed="false">RO</button>
+      </div>
+      <a class="btn bordo" href="napi-menu.html#rendeles" data-i18n="cta.order">Rendelek</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <nav aria-label="Mobil navigáció">
+    <a href="index.html" data-page="index" aria-current="page" data-i18n="nav.home">Főoldal</a>
+    <a href="napi-menu.html" data-page="napi-menu" data-i18n="nav.daily">Napi menü</a>
+    <a href="etlap.html" data-page="etlap" data-i18n="nav.carte">Étlap</a>
+    <a href="programok.html" data-page="programok" data-i18n="nav.events">Programok</a>
+    <a href="kapcsolat.html" data-page="kapcsolat" data-i18n="nav.contact">Kapcsolat</a>
+  </nav>
+  <div class="lang" role="group" aria-label="Nyelv">
+    <button type="button" data-lang="hu" aria-pressed="true">HU</button>
+    <button type="button" data-lang="ro" aria-pressed="false">RO</button>
+  </div>
+  <div class="meta">
+    <span class="status" data-live>Most nyitva</span>
+    <a href="tel:+40747369320">0747 369 320</a>
+    <span data-i18n="addr">Szabadság tér 8., Székelykeresztúr</span>
+  </div>
+</div>
+
+<main id="main">
+<!-- ============ NYITÓKÉP ============ -->
+<section class="hero" data-tone-sec="reggel">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow rv" data-i18n="hero.eyebrow">Étterem · Kávézó · Bár — Székelykeresztúr</span>
+        <h1 class="h-line">
+          <span><span class="t-reggel" data-i18n="hero.l1">Reggel kávé.</span></span>
+          <span><span class="t-del" style="--d:.12s" data-i18n="hero.l2">Délben menü.</span></span>
+          <span><span class="t-este" style="--d:.24s" data-i18n="hero.l3">Este zene.</span></span>
+        </h1>
+        <p class="lead rv" style="--d:.3s" data-i18n="hero.lead">Házias ízek a főtéren, reggel héttől késő estig. Minden nap választható napi menü helyben, elvitelre vagy házhoz szállítva, péntek este pedig élőzene a teraszon.</p>
+        <div class="hero-ctas rv" style="--d:.4s">
+          <a class="btn bordo" href="napi-menu.html">
+            <span data-i18n="hero.cta1">Mai menü &amp; rendelés</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn ghost" href="programok.html#foglalas" data-i18n="hero.cta2">Asztalt foglalok</a>
+          <span class="status" data-live>Most nyitva</span>
+        </div>
+      </div>
+      <figure class="hero-photo rv-img" style="margin:0">
+        <img class="hp-img" src="img/terasz-1600.webp" srcset="img/terasz-800.webp 800w, img/terasz-1600.webp 1600w" sizes="(max-width: 980px) 100vw, 52vw" alt="Jeges kávé a Vándor teraszán, a fák árnyékában; háttérben a fa cégtábla" fetchpriority="high">
+        <img class="hero-logo" src="img/logo-240.webp" srcset="img/logo-240.webp 240w, img/logo-480.webp 480w" sizes="120px" alt="">
+        <figcaption class="cap"><span data-i18n="hero.cap">A terasz, nyári délután</span></figcaption>
+      </figure>
+    </div>
+    <div class="facts">
+      <div class="rv"><b class="num" data-i18n="facts.open">7:00</b><span data-i18n="facts.open2">hétköznap és szombaton már reggel nyitunk</span></div>
+      <div class="rv" style="--d:.08s"><b data-i18n="facts.deliv">Házhoz is</b><span data-i18n="facts.deliv2">a napi menü és a Vándor-tál is rendelhető</span></div>
+      <div class="rv" style="--d:.16s"><b data-i18n="facts.fri">Péntek este</b><span data-i18n="facts.fri2">élőzene — jó időben a teraszon, hűvösben fent</span></div>
+      <div class="rv" style="--d:.24s"><b class="num">2 646</b><span data-i18n="facts.fb">követő a Vándor Facebook-oldalán</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EGY NAP A VÁNDORBAN ============ -->
+<section class="day" aria-labelledby="dayTitle">
+  <div class="wrap">
+    <div class="day-head">
+      <span class="eyebrow rv" data-i18n="day.eyebrow">Egy nap a Vándorban</span>
+      <h2 id="dayTitle" class="rv" data-i18n="day.title">Reggel héttől késő estig — ugyanaz a ház, háromféle arc.</h2>
+    </div>
+
+    <div class="day-body">
+    <aside class="dayrail" aria-hidden="true">
+      <!-- A · Ösvény -->
+      <div class="rail-a">
+        <span class="ra-line"></span><span class="ra-fill"></span>
+        <span class="ra-stop num" style="--at:0">07</span>
+        <span class="ra-stop num" style="--at:.3333">12</span>
+        <span class="ra-stop num" style="--at:.8">19</span>
+        <span class="ra-stop num" style="--at:1">22</span>
+        <div class="ra-walker"><span class="vandor"></span><span class="clock num">07:00</span></div>
+      </div>
+      <!-- B · Napív -->
+      <div class="rail-b">
+        <svg viewBox="0 0 140 400" preserveAspectRatio="none"><path class="rb-track" d="M120 10 A100 190 0 0 0 120 390"/><path class="rb-done" d="M120 10 A100 190 0 0 0 120 390" pathLength="1"/></svg>
+        <span class="rb-sun"></span>
+        <div class="rb-center"><span class="vandor"></span><span class="clock num">07:00</span><span class="rb-label">reggel</span></div>
+      </div>
+      <!-- C · Óraszalag -->
+      <div class="rail-c">
+        <div class="rc-window"><div class="rc-tape"></div></div>
+        <div class="rc-mark"><span class="vandor"></span><span class="clock num">07:00</span></div>
+      </div>
+    </aside>
+    <div class="chapters">
+
+    <!-- reggel -->
+    <article class="chapter" data-tone-sec="reggel">
+      <div class="ch-media rv-img">
+        <div class="frame"><img src="img/kave-1400.webp" srcset="img/kave-800.webp 800w, img/kave-1400.webp 1400w" sizes="(max-width: 980px) 100vw, 46vw" alt="Tökös bögrében cappuccino és vajas kroasszon fa tálcán" loading="lazy"></div>
+        <div class="tag"><span data-i18n="ch1.tagk">Nyitás</span><b class="num" data-i18n="ch1.tag">H–Szo 7:00</b></div>
+      </div>
+      <div class="ch-copy">
+        <div class="ch-time rv">07<small data-i18n="ch1.k">reggel</small></div>
+        <h3 class="rv" data-i18n="ch1.t">Kávé és kroasszon, mielőtt elindul a nap.</h3>
+        <p class="lead rv" data-i18n="ch1.p">A Vándor reggel kávézó: frissen főzött kávé, egy vajas kroasszon, és pár csendes perc a főtéren — vagy nyáron a teraszon, a fák alatt.</p>
+        <ul class="rv">
+          <li data-i18n="ch1.l1">Finom kávék, reggel héttől</li>
+          <li data-i18n="ch1.l2">Terasz a fák alatt, árnyékban</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- dél -->
+    <article class="chapter flip" data-tone-sec="del">
+      <div class="ch-media rv">
+        <div class="board" data-board>
+          <div class="board-top"><h3 data-i18n="board.t">Mai menü</h3><span class="date">—</span></div>
+          <div class="board-cols"></div>
+          <p class="demo-note"></p>
+          <span class="motif" aria-hidden="true"></span>
+        </div>
+      </div>
+      <div class="ch-copy">
+        <div class="ch-time rv">12<small data-i18n="ch2.k">délben</small></div>
+        <h3 class="rv" data-i18n="ch2.t">Választható napi menü: leves, főétel, köret — ahogy Ön rakja össze.</h3>
+        <p class="lead rv" data-i18n="ch2.p">Minden reggel új tábla: négyféle leves, négyféle főétel, négyféle köret. Itt a honlapon már délelőtt látszik, és pár koppintással megrendelhető — helyben, elvitelre vagy házhoz.</p>
+        <div class="rv"><a class="link-arrow" href="napi-menu.html" data-i18n="ch2.cta">Rakja össze a mai menüjét</a></div>
+      </div>
+    </article>
+
+    <!-- este -->
+    <article class="chapter" data-tone-sec="este">
+      <div class="ch-media rv-img">
+        <div class="frame tall"><div class="ph" role="img" aria-label="Fotó: élőzenés este a teraszon — helyőrző"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg><b data-i18n="ph.music">Fotó: élőzenés este a teraszon</b><small data-i18n="ph.sub">ide a Vándor saját fotója kerül</small></div></div>
+        <div class="tag"><span data-i18n="ch3.tagk">Minden pénteken</span><b data-i18n="ch3.tag">Élőzene egész este</b></div>
+      </div>
+      <div class="ch-copy">
+        <div class="ch-time rv">19<small data-i18n="ch3.k">este</small></div>
+        <h3 class="rv" data-i18n="ch3.t">Este a Vándor bár: koktélok, élőzene, terasz.</h3>
+        <p class="lead rv" data-i18n="ch3.p">Péntekenként egész este szól a zene — Ambrus Balázs, Tarkó Nimród és barátaik. Jó időben a teraszon, hűvösebb estéken fent, az étteremben. Asztalfoglalás ajánlott.</p>
+        <ul class="rv">
+          <li data-i18n="ch3.l1">Koktélok, borok, pálinka</li>
+          <li data-i18n="ch3.l2">Meccsközvetítések, tematikus bulik, malacsütés</li>
+        </ul>
+        <div class="rv"><a class="link-arrow" href="programok.html" data-i18n="ch3.cta">Mi lesz a héten?</a></div>
+      </div>
+    </article>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VÁNDOR-TÁL ============ -->
+<section class="tal" data-tone-sec="este" aria-labelledby="talTitle">
+  <div class="wrap tal-grid">
+    <div class="tal-photo rv-img"><img src="img/tal-1300.webp" srcset="img/tal-700.webp 700w, img/tal-1300.webp 1300w" sizes="(max-width: 980px) 100vw, 42vw" alt="Bőséges sültes tál rántott hússal, kolbásszal, sajttal kockás terítőn" loading="lazy"></div>
+    <div class="tal-copy">
+      <span class="eyebrow rv" data-i18n="tal.eyebrow">A ház tála</span>
+      <h2 id="talTitle" class="rv" data-i18n="tal.t">Éhes Vándor Tál — az egész társaságnak.</h2>
+      <div class="price rv"><b class="num">185</b><span data-i18n="tal.unit">lej · fatálon tálalva</span></div>
+      <ul class="chips rv">
+        <li data-i18n="tal.i1">rántott hús</li><li data-i18n="tal.i2">grillkolbász</li><li data-i18n="tal.i3">sült oldalas</li>
+        <li data-i18n="tal.i4">hasábburgonya</li><li data-i18n="tal.i5">steakburgonya</li><li data-i18n="tal.i6">zöldséges rizs</li><li data-i18n="tal.i7">csemegekukorica-mix</li>
+      </ul>
+      <p class="lead rv" data-i18n="tal.p">Helyben a teraszon, vagy házhoz szállítva a családi asztalra.</p>
+      <div class="hero-ctas rv">
+        <a class="btn mez" href="tel:+40747369320" data-i18n="tal.cta">Rendelés: 0747 369 320</a>
+        <a class="link-arrow" href="etlap.html" data-i18n="tal.cta2">Teljes étlap</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KÖVETKEZŐ PROGRAMOK ============ -->
+<section class="next" data-tone-sec="este" aria-labelledby="nextTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow rv" data-i18n="next.eyebrow">Programok</span>
+        <h2 id="nextTitle" class="rv" data-i18n="next.t">Mi lesz a Vándorban?</h2>
+      </div>
+      <a class="link-arrow rv" href="programok.html" data-i18n="next.all">Minden program</a>
+    </div>
+    <div class="ev-list" data-events="short"></div>
+  </div>
+</section>
+
+<!-- ============ ÉTLAP-ÍZELÍTŐ ============ -->
+<section class="taste" data-tone-sec="del" aria-labelledby="tasteTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow rv" data-i18n="taste.eyebrow">Étlap</span>
+        <h2 id="tasteTitle" class="rv" data-i18n="taste.t">Székely, magyar, román klasszikusok — és pizza is.</h2>
+      </div>
+      <a class="link-arrow rv" href="etlap.html" data-i18n="taste.all">Teljes étlap</a>
+    </div>
+    <div class="taste-grid">
+      <a class="rv" href="etlap.html#levesek"><i>01</i><b data-i18n="taste.c1">Csorbák &amp; levesek</b><span data-i18n="taste.c1d">parasztcsorba, babgulyás, lucskos káposzta</span></a>
+      <a class="rv" style="--d:.06s" href="etlap.html#husok"><i>02</i><b data-i18n="taste.c2">Húsok &amp; sültek</b><span data-i18n="taste.c2d">csülök, fatányéros, csirkemell nyolcféleképpen</span></a>
+      <a class="rv" style="--d:.12s" href="etlap.html#halak"><i>03</i><b data-i18n="taste.c3">Halak</b><span data-i18n="taste.c3d">pisztráng, ponty, tőkehal</span></a>
+      <a class="rv" href="etlap.html#pizza"><i>04</i><b data-i18n="taste.c4">Pizza &amp; tészta</b><span data-i18n="taste.c4d">helyben vagy elvitelre</span></a>
+      <a class="rv" style="--d:.06s" href="etlap.html#desszert"><i>05</i><b data-i18n="taste.c5">Desszertek</b><span data-i18n="taste.c5d">túrófánk, madártej, csokisoufflé, palacsinta</span></a>
+      <a class="rv" style="--d:.12s" href="etlap.html#italok"><i>06</i><b data-i18n="taste.c6">Kávé, koktél, bor</b><span data-i18n="taste.c6d">reggeli kávétól az esti koktélig</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PITCH ============ -->
+<section class="pitch" data-tone-sec="del" aria-labelledby="pitchTitle">
+  <div class="wrap">
+    <div class="pitch-box rv">
+      <span class="motif" aria-hidden="true"></span>
+      <span class="eyebrow" data-i18n="pitch.eyebrow">Amit ez az oldal levesz a válláról</span>
+      <h2 id="pitchTitle" data-i18n="pitch.t">Egyszer írja be a menüt, a többit az oldal intézi.</h2>
+      <div class="pitch-grid">
+        <div><span class="n">1</span><div><h3 data-i18n="pitch.1t">Napi menü egy helyen</h3><p data-i18n="pitch.1p">Reggel a telefonról beírja, és már ott van a honlapon, a főoldalon — és elkészül belőle a Facebook-plakát is, szerkesztés nélkül.</p></div></div>
+        <div><span class="n">2</span><div><h3 data-i18n="pitch.2t">Rendelés írásban</h3><p data-i18n="pitch.2p">Délben nem csörög folyton a telefon: a rendelés leírva érkezik — mit, hány adagot, mikorra, hova —, a vendég pedig SMS-ben kap visszaigazolást.</p></div></div>
+        <div><span class="n">3</span><div><h3 data-i18n="pitch.3t">Programok és asztalfoglalás</h3><p data-i18n="pitch.3p">A péntek esti zene, a Halloween, a Márton-nap: egy listában, ami magától frissül, foglalással együtt.</p></div></div>
+        <div><span class="n">4</span><div><h3 data-i18n="pitch.4t">Rendbe tett Google-profil</h3><p data-i18n="pitch.4p">A Vándor Google-térképes adatlapja most gazdátlan: nincs rajta telefonszám, nyitvatartás, fotó. Ezt is rendbe tesszük, és ide mutat.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <span class="motif" aria-hidden="true"></span>
+    <div class="ftr-grid">
+      <div class="ftr-brand">
+        <img src="img/logo-240.webp" alt="Éhes Vándor Étterem logó">
+        <p data-i18n="ftr.about">Étterem, kávézó és bár Székelykeresztúr főterén. Reggel kávé, délben napi menü, este élőzene — és ami közben elfér.</p>
+      </div>
+      <div>
+        <h4 data-i18n="ftr.find">Itt talál</h4>
+        <ul>
+          <li data-i18n="addr">Szabadság tér 8., Székelykeresztúr</li>
+          <li><a href="tel:+40747369320">0747 369 320</a></li>
+          <li><a href="https://www.facebook.com/ehesvandor" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="ftr.hours">Nyitvatartás</h4>
+        <ul class="num">
+          <li data-i18n="ftr.h1">H–Cs · 7–23</li>
+          <li data-i18n="ftr.h2">P–Szo · 7–24</li>
+          <li data-i18n="ftr.h3">V · 10–22</li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="ftr.pages">Oldalak</h4>
+        <ul>
+          <li><a href="napi-menu.html" data-i18n="nav.daily">Napi menü</a></li>
+          <li><a href="etlap.html" data-i18n="nav.carte">Étlap</a></li>
+          <li><a href="programok.html" data-i18n="nav.events">Programok</a></li>
+          <li><a href="kapcsolat.html" data-i18n="nav.contact">Kapcsolat</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="base">
+      <span>© <span data-year>2026</span> Éhes Vándor SRL</span>
+      <span data-i18n="ftr.demo">Látványterv — a tartalom egy része minta, egyeztetésre vár.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="dock away">
+  <a class="btn mez" href="napi-menu.html#rendeles" data-i18n="dock.menu">Mai menü</a>
+  <a class="btn" href="tel:+40747369320" data-i18n="dock.call">Hívás</a>
+</div>
+
+<script src="data.js"></script>
+<script src="locale.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
