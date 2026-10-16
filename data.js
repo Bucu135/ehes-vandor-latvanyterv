@@ -31,6 +31,24 @@ window.EV = {
     ]
   },
 
+  /* Ami házhoz vagy elvitelre rendelhető — a „Rendelés” lap ebből épül.
+     A napi menü, a Vándor-tál és a libamenü a Vándor saját posztjai szerint házhoz is jön;
+     az étlap többi tételét a klienssel kell egyeztetni. */
+  orderables: [
+    { id: 'napi', img: null,
+      hu: { t: 'Napi menü', d: 'Leves + főétel + köret, minden nap új', p: '' },
+      ro: { t: 'Meniul zilei', d: 'Supă + fel principal + garnitură, nou în fiecare zi', p: '' } },
+    { id: 'tal', img: 'img/tal-700.webp',
+      hu: { t: 'Éhes Vándor Tál', d: 'Rántott hús, kolbász, oldalas, köretek — fatálon', p: '185 lej' },
+      ro: { t: 'Platoul Éhes Vándor', d: 'Șnițel, cârnați, coaste, garnituri — pe platou de lemn', p: '185 lei' } },
+    { id: 'liba', img: null, until: '2026-11-15',
+      hu: { t: 'Márton-napi libamenü', d: 'Háromfogásos libavacsora házhoz — csak nov. 13–15.', p: '' },
+      ro: { t: 'Meniu cu gâscă de Sf. Martin', d: 'Cină cu gâscă, trei feluri, la domiciliu — doar 13–15 nov.', p: '' } },
+    { id: 'etlap', img: null,
+      hu: { t: 'Az étlapról', d: 'Pizza, sültek, desszertek — írja le, mit kér', p: '' },
+      ro: { t: 'Din meniu', d: 'Pizza, fripturi, deserturi — scrieți ce doriți', p: '' } }
+  ],
+
   /* Programok — a lejárt alkalmak maguktól eltűnnek */
   events: [
     {

@@ -214,3 +214,6 @@ body.v-b[data-tone="este"]::before { opacity: 1; }
 /* mobil alsó sáv: kapszula-gombok (Bence kérése) */
 .v-b .dock { border-radius: 999px; padding: 7px; }
 .v-b .dock .btn { border-radius: 999px; }
+.v-b .os-list a, .v-b .mcard { border-radius: 10px; }
+.v-b .os-list img, .v-b .os-ico { border-radius: 8px; }
+.v-b .os-list em, .v-b .os-list i, .v-b .os-call b { color: var(--bordo); }

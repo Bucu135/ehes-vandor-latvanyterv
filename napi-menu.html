@@ -41,7 +41,7 @@
         <button type="button" data-lang="hu" aria-pressed="true">HU</button>
         <button type="button" data-lang="ro" aria-pressed="false">RO</button>
       </div>
-      <a class="btn bordo" href="napi-menu.html#rendeles" data-i18n="cta.order">Rendelek</a>
+      <a class="btn bordo" href="napi-menu.html#rendeles" data-order-open data-i18n="cta.order">Rendelek</a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Menü"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -79,7 +79,46 @@
 
 <section class="order" id="rendeles" data-tone-sec="este" aria-label="Rendelés">
   <div class="wrap order-grid">
-    <form class="pick rv" id="pick" onsubmit="return false">
+    <form class="pick rv" id="pick" data-kind="napi" onsubmit="return false">
+      <div class="kind" role="radiogroup" aria-label="Mit rendel?">
+        <span class="kind-lbl" data-i18n="ok.what">Mit rendel?</span>
+        <label><input type="radio" name="kind" value="napi" checked><span data-i18n="ok.napi">Napi menü</span></label>
+        <label><input type="radio" name="kind" value="tal"><span data-i18n="ok.tal">Vándor-tál</span></label>
+        <label data-until="2026-11-15"><input type="radio" name="kind" value="liba"><span data-i18n="ok.liba">Libamenü</span></label>
+        <label><input type="radio" name="kind" value="etlap"><span data-i18n="ok.etlap">Az étlapról</span></label>
+      </div>
+
+      <!-- Vándor-tál -->
+      <div class="mode mode-tal">
+        <div class="mcard">
+          <img src="img/tal-700.webp" alt="Az Éhes Vándor Tál kockás terítőn" loading="lazy">
+          <div>
+            <h3 data-i18n="d.tal">Éhes Vándor Tál</h3>
+            <p class="mprice num">185 lej</p>
+            <p data-i18n="d.tal2">rántott hús, grillkolbász, sült oldalas, hasábburgonya, steakburgonya, zöldséges rizs, csemegekukorica-mix — fatálon, házhoz is</p>
+          </div>
+        </div>
+      </div>
+      <!-- Márton-napi libamenü -->
+      <div class="mode mode-liba">
+        <div class="mcard noimg">
+          <div>
+            <span class="eyebrow" data-i18n="ok.libak">Csak nov. 13–15.</span>
+            <h3 data-i18n="ok.libat">Márton-napi libamenü</h3>
+            <p data-i18n="ok.libad">Háromfogásos libafinomságok, ahogy a Márton-napi vacsoraesten — házhoz is rendelhető. Az időpontot a jobb oldalon választhatja ki.</p>
+          </div>
+        </div>
+      </div>
+      <!-- étlapról -->
+      <div class="mode mode-etlap">
+        <div class="f">
+          <label for="etlapText" data-i18n="ok.etlapq">Mit kér az étlapról?</label>
+          <textarea id="etlapText" name="etlapText" data-i18n-ph="etlapph" placeholder="pl. 2 rántott hús hasábburgonyával, 1 túrófánk"></textarea>
+        </div>
+        <p class="muted" style="font-size:15px"><span data-i18n="ok.etlapn">A konyha visszaigazolja, mi rendelhető aznap.</span> <a class="link-arrow" href="etlap.html" data-i18n="ok.etlapl">Étlap</a></p>
+      </div>
+
+      <div class="mode mode-napi">
       <p class="single-note" data-i18n="dm.single">Ma csak egyféle menü van — de abból bőven.</p>
       <fieldset>
         <legend><span data-i18n="dm.soups">1 · Leves</span><small data-i18n="dm.pick1">válasszon egyet</small></legend>
@@ -94,6 +133,7 @@
         <div class="opts" data-opts="sides"></div>
       </fieldset>
       <p class="muted" style="font-size:14px" id="pickNote"></p>
+      </div>
     </form>
 
     <div class="panel rv" style="--d:.1s">
@@ -110,7 +150,7 @@
         </div>
         <div class="f-row">
           <div class="f">
-            <span class="lbl" data-i18n="of.qty">Adag</span>
+            <span class="lbl" data-i18n="of.qty">Mennyiség</span>
             <div class="qty"><button type="button" id="qtyMinus" aria-label="Kevesebb">−</button><output id="qtyOut">1</output><button type="button" id="qtyPlus" aria-label="Több">+</button></div>
           </div>
           <div class="f">
@@ -128,8 +168,8 @@
         </div>
         <div class="f"><label for="ofNote" data-i18n="of.note">Megjegyzés</label><input id="ofNote" name="note" data-i18n-ph="note" placeholder="pl. hagyma nélkül, kapucsengő: 3"></div>
         <div class="summary" aria-live="polite">
-          <div class="line"><span data-i18n="of.s1">Menü</span><b id="sumMenu">—</b></div>
-          <div class="line"><span data-i18n="of.s2">Adag</span><b id="sumQty">1 adag</b></div>
+          <div class="line"><span data-i18n="of.s1">Rendelés</span><b id="sumMenu">—</b></div>
+          <div class="line"><span data-i18n="of.s2">Mennyiség</span><b id="sumQty">1 adag</b></div>
           <div class="line"><span data-i18n="of.s3">Mód</span><b id="sumMode">—</b></div>
           <div class="line"><span data-i18n="of.s4">Időpont</span><b id="sumTime">—</b></div>
         </div>
@@ -220,7 +260,7 @@
 </footer>
 
 <div class="dock away">
-  <a class="btn mez" href="napi-menu.html#rendeles" data-i18n="dock.menu">Mai menü</a>
+  <a class="btn mez" href="napi-menu.html#rendeles" data-order-open data-i18n="dock.order">Rendelés</a>
   <a class="btn" href="tel:+40747369320" data-i18n="dock.call">Hívás</a>
 </div>
 

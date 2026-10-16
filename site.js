@@ -31,6 +31,9 @@
       msgOk: n => `Köszönjük, ${n}! Az üzenete élesben egyenesen a Vándor e-mailjébe érkezne.`,
       need: 'Kérjük, töltse ki a csillagos mezőket.',
       pickAll: 'Válasszon levest, főételt és köretet.',
+      writeWhat: 'Írja le, mit kér az étlapról.',
+      platter: n => `${n} tál`,
+      sheet: { t: 'Mit rendelne?', p: 'Házhoz vagy elvitelre — válasszon, a többi pár koppintás.', call: 'Inkább hívna?', close: 'Bezárás' },
       persons: 'fő', asap: 'amint kész',
       cd: ['nap', 'óra', 'perc', 'mp'],
       friday: 'Péntek este a Vándorban', fridayNow: 'Ma este élőzene!',
@@ -54,6 +57,9 @@
       msgOk: n => `Mulțumim, ${n}! În varianta live, mesajul ajunge direct pe e-mailul restaurantului.`,
       need: 'Vă rugăm completați câmpurile marcate cu steluță.',
       pickAll: 'Alegeți o supă, un fel principal și o garnitură.',
+      writeWhat: 'Scrieți ce doriți din meniu.',
+      platter: n => `${n} ${n > 1 ? 'platouri' : 'platou'}`,
+      sheet: { t: 'Ce doriți să comandați?', p: 'La domiciliu sau la pachet — alegeți, restul e din câteva atingeri.', call: 'Preferați să sunați?', close: 'Închide' },
       persons: 'pers.', asap: 'cât mai curând',
       cd: ['zile', 'ore', 'min', 'sec'],
       friday: 'Vineri seara la Vándor', fridayNow: 'Diseară muzică live!',
@@ -349,31 +355,66 @@
   function chosen() {
     return CATS.map(c => { const i = pick && pick.querySelector(`input[name="${c}"]:checked`); return i ? M[c][+i.value] : null; });
   }
+  /* mit rendel: napi menü · Vándor-tál · libamenü · étlapról */
+  const kindOf = () => (pick && pick.dataset.kind) || 'napi';
+  const orderable = id => EV.orderables.find(o => o.id === id);
+  const available = o => !o.until || localNow() <= new Date(o.until + 'T23:59');
+  function orderLabel() {
+    const k = kindOf();
+    if (k === 'napi') { const ch = chosen(); return ch.every(Boolean) ? ch.map(L).join(' · ') : '—'; }
+    if (k === 'etlap') { const v = pick.elements.etlapText.value.trim(); return v ? v.slice(0, 60) + (v.length > 60 ? '…' : '') : '—'; }
+    return L(orderable(k)).t;
+  }
+  function fillTimes() {
+    if (!of) return;
+    const sel = of.elements.time, prev = sel.value, k = kindOf();
+    let opts;
+    if (k === 'liba') {
+      const days = ['2026-11-13', '2026-11-14', '2026-11-15'].filter(d => new Date(d + 'T20:00') > localNow());
+      opts = days.flatMap(d => ['17:00', '18:00', '19:00'].map(h => `${fmtDate(new Date(d + 'T12:00'), { month: 'short', day: 'numeric' })}, ${h}`));
+    } else if (k === 'napi') opts = slots();
+    else {   // tál és étlap: egész nap, záróráig
+      const now = localNow(), close = EV.hours[now.getDay()][1] - 1, out = [];
+      const from = Math.max(11 * 60 + 30, Math.ceil((now.getHours() * 60 + now.getMinutes() + 45) / 30) * 30);
+      for (let m = from; m <= close * 60; m += 30) out.push(`${pad(Math.floor(m / 60))}:${pad(m % 60)}`);
+      opts = out.length ? out : ['12:00', '13:00', '18:00', '19:00'];
+    }
+    sel.innerHTML = opts.map(s => `<option${s === prev ? ' selected' : ''}>${s}</option>`).join('');
+  }
+  function setKind(k, focus) {
+    if (!pick) return;
+    if (!orderable(k) || !available(orderable(k))) k = 'napi';
+    pick.dataset.kind = k;
+    const r = pick.querySelector(`input[name="kind"][value="${k}"]`); if (r) r.checked = true;
+    fillTimes(); renderOrderSummary();
+    if (focus) { const el = pick.querySelector(`.mode-${k} textarea`); if (el) setTimeout(() => el.focus({ preventScroll: true }), 400); }
+  }
   function renderOrderSummary() {
     if (!of) return;
     const mode = of.elements.mode.value;
     of.classList.toggle('is-delivery', mode === 'deliv');
     $('#qtyOut').textContent = qty;
-    const ch = chosen();
-    $('#sumMenu').textContent = ch.every(Boolean) ? ch.map(L).join(' · ') : '—';
-    $('#sumQty').textContent = t().portion(qty);
+    $('#sumMenu').textContent = orderLabel();
+    $('#sumQty').textContent = kindOf() === 'tal' ? t().platter(qty) : t().portion(qty);
     $('#sumMode').textContent = t().modes[mode];
     $('#sumTime').textContent = of.elements.time.value || '—';
   }
   if (of) {
-    const sel = of.elements.time;
-    sel.innerHTML = slots().map(s => `<option>${s}</option>`).join('');
+    fillTimes();
     of.addEventListener('input', renderOrderSummary);
-    pick.addEventListener('change', renderOrderSummary);
+    pick.addEventListener('change', e => { if (e.target.name === 'kind') setKind(e.target.value, true); else renderOrderSummary(); });
+    pick.addEventListener('input', renderOrderSummary);
+    $$('.kind [data-until]', pick).forEach(l => { if (localNow() > new Date(l.dataset.until + 'T23:59')) l.remove(); });
     $('#qtyMinus').addEventListener('click', () => { qty = Math.max(1, qty - 1); renderOrderSummary(); });
     $('#qtyPlus').addEventListener('click', () => { qty = Math.min(20, qty + 1); renderOrderSummary(); });
     of.addEventListener('submit', e => {
       e.preventDefault();
-      const err = $('.err', of), name = of.elements.name.value.trim(), tel = of.elements.tel.value.trim();
-      if (!chosen().every(Boolean)) { err.textContent = t().pickAll; pick.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }); return; }
+      const err = $('.err', of), name = of.elements.name.value.trim(), tel = of.elements.tel.value.trim(), k = kindOf();
+      if (k === 'napi' && !chosen().every(Boolean)) { err.textContent = t().pickAll; pick.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }); return; }
+      if (k === 'etlap' && !pick.elements.etlapText.value.trim()) { err.textContent = t().writeWhat; pick.elements.etlapText.focus(); return; }
       if (!name || !tel || (of.elements.mode.value === 'deliv' && !of.elements.addr.value.trim())) { err.textContent = t().need; return; }
       err.textContent = '';
-      $('#orderSms').textContent = t().orderSms(name.split(' ').pop(), t().portion(qty), t().modes[of.elements.mode.value], of.elements.time.value);
+      $('#orderSms').textContent = t().orderSms(name.split(' ').pop(), `${orderLabel()}, ${k === 'tal' ? t().platter(qty) : t().portion(qty)}`, t().modes[of.elements.mode.value], of.elements.time.value);
       of.closest('.panel').classList.add('sent');
     });
     $('#orderAgain').addEventListener('click', () => { of.closest('.panel').classList.remove('sent'); });
@@ -551,14 +592,74 @@
     if (document.fonts) document.fonts.ready.then(realign);
   }
 
+  /* ---------- „Rendelés” lap: alulról felcsúszó választó (mobil), középre nyíló ablak (asztali) ---------- */
+  const sheet = document.createElement('div');
+  sheet.className = 'osheet'; sheet.hidden = true;
+  sheet.innerHTML = `<div class="os-back" data-os-close></div>
+    <div class="os-panel" role="dialog" aria-modal="true" aria-labelledby="osTitle">
+      <span class="os-grip" aria-hidden="true"></span>
+      <button type="button" class="os-x" data-os-close><span class="vh"></span>×</button>
+      <h3 id="osTitle"></h3><p class="os-sub"></p>
+      <ul class="os-list"></ul>
+      <a class="os-call" href="${EV.telHref}"><span></span> <b>${EV.tel}</b></a>
+    </div>`;
+  document.body.append(sheet);
+  let osLast = null;
+  function renderSheet() {
+    const S = t().sheet;
+    $('#osTitle', sheet).textContent = S.t; $('.os-sub', sheet).textContent = S.p;
+    $('.os-call span', sheet).textContent = S.call; $('.os-x .vh', sheet).textContent = S.close;
+    $('.os-list', sheet).innerHTML = EV.orderables.filter(available).map(o => {
+      const x = L(o);
+      return `<li><a href="napi-menu.html?r=${o.id}#rendeles" data-kind="${o.id}">
+        ${o.img ? `<img src="${o.img}" alt="" loading="lazy">` : `<span class="os-ico" aria-hidden="true"></span>`}
+        <span class="os-txt"><b>${esc(x.t)}</b><small>${esc(x.d)}</small></span>
+        ${x.p ? `<em class="num">${esc(x.p)}</em>` : ''}<i aria-hidden="true">→</i></a></li>`;
+    }).join('');
+  }
+  function openSheet(from) {
+    osLast = from || document.activeElement;
+    sheet.hidden = false; root.classList.add('os-lock');
+    requestAnimationFrame(() => requestAnimationFrame(() => sheet.classList.add('open')));
+    setTimeout(() => { const a = $('.os-list a', sheet); if (a) a.focus({ preventScroll: true }); }, 60);
+  }
+  function closeSheet() {
+    if (sheet.hidden) return;
+    sheet.classList.remove('open'); root.classList.remove('os-lock');
+    setTimeout(() => { sheet.hidden = true; }, reduced ? 0 : 320);
+    if (osLast && osLast.focus) osLast.focus({ preventScroll: true });
+  }
+  document.addEventListener('click', e => {
+    const opener = e.target.closest('[data-order-open]');
+    if (opener) { e.preventDefault(); openSheet(opener); return; }
+    if (e.target.closest('[data-os-close]')) { closeSheet(); return; }
+    const a = e.target.closest('.os-list a');
+    if (a && pick) {                       // már a rendelő oldalon vagyunk: nincs újratöltés
+      e.preventDefault(); closeSheet(); setKind(a.dataset.kind, true);
+      history.replaceState(null, '', '?r=' + a.dataset.kind + '#rendeles');
+      const sec = document.getElementById('rendeles');
+      setTimeout(() => glideTo(anchorY(sec)), reduced ? 0 : 200);
+    } else if (a) { closeSheet(); }
+  }, true);
+  addEventListener('keydown', e => {
+    if (sheet.hidden) return;
+    if (e.key === 'Escape') closeSheet();
+    if (e.key === 'Tab') {                 // fókusz a lapon belül marad
+      const f = $$('a, button', $('.os-panel', sheet)), first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
   /* ---------- mindent újrarajzol (nyelvváltáskor is) ---------- */
   function renderAll() {
-    renderStatus(); renderBoards(); renderPick(); renderPoster(); renderEvents(); renderCountdown(); renderOrderSummary(); trailTick();
+    renderStatus(); renderBoards(); renderPick(); renderPoster(); renderEvents(); renderCountdown(); renderOrderSummary(); trailTick(); renderSheet(); if (of) fillTimes();
     if (kitchen && kitchen.fill) kitchen.fill();
   }
 
   const saved = store.get('ev-lang');
   setLang(saved === 'ro' ? 'ro' : 'hu', false);
+  { const k = new URLSearchParams(location.search).get('r'); if (k && pick) setKind(k); }
   watchReveal();
   trailTick(); parallax();
   setInterval(renderStatus, 60000);
