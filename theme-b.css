@@ -217,3 +217,4 @@ body.v-b[data-tone="este"]::before { opacity: 1; }
 .v-b .os-list a, .v-b .mcard { border-radius: 10px; }
 .v-b .os-list img, .v-b .os-ico { border-radius: 8px; }
 .v-b .os-list em, .v-b .os-list i, .v-b .os-call b { color: var(--bordo); }
+.v-b .lang::before { background: var(--krem); }

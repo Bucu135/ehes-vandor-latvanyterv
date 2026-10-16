@@ -107,10 +107,24 @@
     $$('[data-i18n-ph]').forEach(el => { const k = el.dataset.i18nPh; const v = lang === 'ro' ? (window.LOCALE_RO || {})['ph.' + k] : HUattr[k]; if (v != null) el.placeholder = v; });
     document.documentElement.lang = lang;
     $$('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+    $$('.lang').forEach(g => { g.dataset.cur = lang; });
     if (save) store.set('ev-lang', lang);
     renderAll();
   }
-  $$('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  // nyelvváltás: a kapcsoló csúszik, a szövegek elhalványulnak és az új nyelven térnek vissza
+  let swapping = false;
+  $$('.lang button').forEach(b => b.addEventListener('click', () => {
+    const l = b.dataset.lang;
+    if (l === lang || swapping) return;
+    $$('.lang').forEach(g => { g.dataset.cur = l; });        // a csúszka azonnal indul
+    if (reduced) { setLang(l); return; }
+    swapping = true; root.classList.add('lang-out');
+    setTimeout(() => {
+      setLang(l);
+      root.classList.remove('lang-out'); root.classList.add('lang-in');
+      setTimeout(() => { root.classList.remove('lang-in'); swapping = false; }, 320);
+    }, 170);
+  }));
 
   /* ---------- oldalváltás: tábla-függöny + lágy görgetés a horgonyokhoz ---------- */
   const root = document.documentElement;
